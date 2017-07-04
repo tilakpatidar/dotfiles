@@ -236,7 +236,7 @@ set expandtab
 map <C-u> :u<CR>
 
 " ------- TComment shortcut --- "
-map <C-/> :TComment<CR>
+map <C-?> :TComment<CR>
 
 " ------- YouCompeleteMe shortcut ---"
 map <C-]> :YcmCompleter GoToImprecise<CR>
