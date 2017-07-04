@@ -34,6 +34,10 @@ Plugin 'matze/vim-move'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" --- Working with markdown files -------------------------------------
+Plugin 'shime/vim-livedown'
+Bundle 'gabrielelana/vim-markdown'
 " ----- Other text editing features -----------------------------------
 Plugin 'Raimondi/delimitMate'
 
