@@ -132,8 +132,7 @@ let g:airline_detect_paste=1
 " Show airline for tabs too
 let g:airline#extensions#tabline#enabled = 1
 
-" Use the solarized theme for the Airline status bar
-let g:airline_theme='base16_railscasts'
+
 
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
@@ -148,7 +147,7 @@ map <F2> :NERDTreeToggle<CR>
 " Show hidden files in NerdTree
 "let NERDTreeShowHidden=1
 
-
+" CTRL-p show hidden files
 let g:ctrlp_show_hidden = 1
 
 " Ctrl Right next tab
@@ -295,6 +294,14 @@ source $HOME/.neocomplete.vim
 
 " --- set line number highlight --- "
 autocmd InsertEnter * set cul
+
+" --- set gvim vs vim config ---- "
+if has('gui_running')
+  let g:airline_theme='base16_railscasts'
+else
+  let g:airline_theme='cool'
+endif
+
 
 " ---- set different cursor shapes for gnome-terminal ---- "
 "  http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
