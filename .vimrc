@@ -288,3 +288,6 @@ map <C-Space> :CtrlP<CR>
 
 " --- import neocomplete --- "
 source $HOME/.neocomplete.vim
+
+" --- set line number highlight --- "
+autocmd InsertEnter * set cul
