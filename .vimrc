@@ -295,3 +295,12 @@ source $HOME/.neocomplete.vim
 
 " --- set line number highlight --- "
 autocmd InsertEnter * set cul
+
+" ---- set different cursor shapes for gnome-terminal ---- "
+"  http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
+
+if has("autocmd")
+  au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape underline"
+  au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+  au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+endif
