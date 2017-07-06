@@ -64,7 +64,7 @@ Plugin 'lfilho/cosco.vim'
 " --- Intellij Style multi cursor --- 
 Plugin 'terryma/vim-multiple-cursors'
 " --- CodeCompletion ---
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 
 " --- Commenting "
 Plugin 'tomtom/tlib_vim'
@@ -242,7 +242,7 @@ map <C-u> :u<CR>
 map <C-?> :TComment<CR>
 
 " ------- YouCompeleteMe shortcut ---"
-map <C-]> :YcmCompleter GoToImprecise<CR>
+" map <C-]> :YcmCompleter GoToImprecise<CR>
 
 " --- Font settings --- "
 set guifont=Hack\ 12
