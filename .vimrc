@@ -79,6 +79,17 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'tpope/vim-liquid'
 Plugin 'cakebaker/scss-syntax.vim'
+
+" ----- Vimsession restore and save plugin ---- "
+Plugin 'xolox/vim-session'
+
+" ----- Code Snippets ---- "
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" ----- Highlight indentations --- "
+Plugin 'Yggdroot/indentLine'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -276,7 +287,7 @@ map <C-w> :tabclose<CR>
 let g:move_key_modifier = 'C'
 
 " ---- set default shell ---- 
-"set shell=/bin/zsh
+set shell=/bin/zsh
 
 " ---- set gvim behaviour to mswin for ctrl-c/v copy pasting --- "
 source $VIMRUNTIME/mswin.vim
