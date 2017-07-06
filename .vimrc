@@ -310,6 +310,11 @@ else
   let g:airline_theme='cool'
 endif
 
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
+
+" Disable autosave session
+let g:session_autosave = 'no'
 
 " ---- set different cursor shapes for gnome-terminal ---- "
 "  http://vim.wikia.com/wiki/Change_cursor_shape_in_different_modes
@@ -319,3 +324,30 @@ if has("autocmd")
   au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
   au VimLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
 endif
+
+" ---- Code snippets configuration ----
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" ---- Eclim autocompletion with neocomplete ---- "
+let g:EclimCompletionMethod = 'omnifunc'
+
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns.java = '\k\.\k*'
+
+" ---- GitGutter enable default ----- "
+let g:gitgutter_enabled = 1
+
+" ---- Remove preview window when option selected --- "
+autocmd CompleteDone * pclose
+
+" ----- Shortcut for code duplicate ---- "
+nnoremap <C-d> yyp
+vnoremap <C-d> y`>pgv
