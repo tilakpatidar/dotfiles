@@ -297,9 +297,6 @@ behave mswin
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
-" CtrlP file search shortcut
-map <C-Space> :CtrlP<CR>
-
 " --- import neocomplete --- "
 source $HOME/.neocomplete.vim
 
