@@ -30,6 +30,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'szw/vim-maximizer'
 Plugin 'matze/vim-move'
+Plugin 'terryma/vim-expand-region'
 " ----- Working with Git ----------------------------------------------
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
