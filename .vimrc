@@ -91,6 +91,11 @@ Plugin 'honza/vim-snippets'
 " ----- Highlight indentations --- "
 Plugin 'Yggdroot/indentLine'
 
+" --- Text objects for vim expand region --- "
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-line'
+Plugin 'kana/vim-textobj-entire'
+
 call vundle#end()
 
 filetype plugin indent on
