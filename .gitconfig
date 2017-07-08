@@ -1,0 +1,11 @@
+[user]
+	name = tilakpatidar
+	email = tilakpatidar@gmail.com
+[core]
+	excludesfile = /Users/ptilak/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/ptilak/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
