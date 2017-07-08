@@ -352,3 +352,28 @@ autocmd CompleteDone * pclose
 " ----- Shortcut for code duplicate ---- "
 nnoremap <C-d> yyp
 vnoremap <C-d> y`>pgv
+
+" --- Multi cursors config ---"
+" to overide mswin selection behaviour "
+" https://github.com/terryma/vim-multiple-cursors/issues/124
+set selection=inclusive
+
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
+set conceallevel=0
+
+" --- Vim expand region shortcut --- "
+map <C-Up> <Plug>(expand_region_expand)
+map <C-Down> <Plug>(expand_region_shrink)
