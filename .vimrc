@@ -291,8 +291,8 @@ let g:move_key_modifier = 'C'
 set shell=/bin/zsh
 
 " ---- set gvim behaviour to mswin for ctrl-c/v copy pasting --- "
-source $VIMRUNTIME/mswin.vim
-behave mswin
+ source $VIMRUNTIME/mswin.vim
+ behave mswin
 
 " --- vim-javascript config --- "
 let g:javascript_plugin_jsdoc = 1
