@@ -18,7 +18,8 @@ Plugin 'tomasr/molokai'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'KevinGoodsell/vim-csexact'
+" ---  Enable for gnome-terminal not working for iterm2 ---- "
+" Plugin 'KevinGoodsell/vim-csexact'
 " ----- Vim as a programmer's text editor -----------------------------
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -121,13 +122,18 @@ hi clear SignColumn
 
 " ----- altercation/vim-colors-solarized settings -----
 " Toggle this to "light" for light colorscheme
-"set background=light
+set background=light
 
 " Uncomment the next line if your terminal is not configured for solarized
 let g:solarized_termcolors=256
 
 " Set the colorscheme
-colorscheme codeschool
+" --- set gvim vs vim config ---- "
+if has('gui_running')
+  colorscheme codeschool
+else
+  colorscheme CandyPaper
+endif
 
 " Search highlight color
 hi Search guibg=peru guifg=wheat
@@ -262,7 +268,7 @@ map <C-?> :TComment<CR>
 " map <C-]> :YcmCompleter GoToImprecise<CR>
 
 " --- Font settings --- "
-set guifont=Hack\ 12
+set guifont=Hack\ 16
 
 " --- Cursor settings --- "
 highlight Cursor guifg=white guibg=white
