@@ -1,0 +1,66 @@
+" File: .ideavimrc
+" Author: Tilak Patidar <tilakpatidar@gmail.com>
+"
+
+" Gotta be first
+set nocompatible
+
+filetype off
+
+set backspace=indent,eol,start
+set ruler
+set number
+set showcmd
+set incsearch
+set hlsearch
+syntax on
+
+
+set mouse=a
+
+" Required to get theme colors working
+set t_Co=256
+" We need this for plugins like Syntastic and vim-gitgutter which put symbols
+" in the sign column.
+hi clear SignColumn
+
+" Search highlight color
+hi Search guibg=peru guifg=wheat
+
+" ================ Turn Off Swap Files ==============
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Indentation ======================
+"
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+" ------ Set undo shortcut --- "
+map <C-u> :u<CR>
+
+" --- Cursor settings --- "
+highlight Cursor guifg=white guibg=white
+highlight iCursor guifg=white guibg=steelblue
+set guicursor=a:hor2-Cursor
+set guicursor+=i:hor2-Cursor
+set guicursor+=n:block-Cursor
+
+" ---- Split keymaps ----
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Close tab
+map <C-w> :tabclose<CR>
+set shell=/bin/zsh
+
+" Make double-<Esc> clear search highlights
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
