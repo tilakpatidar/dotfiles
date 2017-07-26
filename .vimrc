@@ -379,3 +379,7 @@ set conceallevel=0
 " --- Vim expand region shortcut --- "
 map <C-Up> <Plug>(expand_region_expand)
 map <C-Down> <Plug>(expand_region_shrink)
+
+" --- Add copy paste shortcuts ---- "
+map <C-x> :!pbcopy<CR>
+vmap <C-c> :w !pbcopy<CR><CR>
