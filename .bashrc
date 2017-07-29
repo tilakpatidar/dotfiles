@@ -1,13 +1,13 @@
 cowsay containers are awesome
 
-# Eval ssh-agent if not exists
-if ps -p $SSH_AGENT_PID > /dev/null; then
-   echo "[INFO] SSH agent is running"
-else
-   echo "[INFO] SSH agent is not running"
-   eval `ssh-agent -s`
-   ssh-add -k ~/.ssh/id_rsa
+# Set SSH agent
+if ! pgrep -x "ssh-agent" > /dev/null; then
+    echo "[INFO] SSH agent not running, restarting"
+    eval `ssh-agent -s`
+    ssh-add -k ~/.ssh/id_rsa
 fi
+source ~/.ssh-find-agent/ssh-find-agent.sh
+set_ssh_agent_socket
 export PATH=/usr/local/mysql/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export PATH=/usr/local/Cellar/httrack/3.49.2/bin/:/Applications/calibre.app/Contents/MacOS/:$PATH
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home
