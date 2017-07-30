@@ -1,0 +1,32 @@
+function docker_env() {
+  eval "$(docker-machine env "${1:-default}")"
+}
+alias wp="./node_modules/.bin/webpack -d"
+alias npmrs="npm run-script"
+alias java_repl="java -jar ~/bin/javarepl-dev.jar" 
+alias daisy_diff="java -jar ~/bin/daisydiff.jar"
+alias convert_research_paper="python ~/bin/convert_research_paper"
+alias rethinkdb.start='launchctl load /usr/local/opt/rethinkdb/homebrew.mxcl.rethinkdb.plist'
+alias rethinkdb.stop='launchctl unload /usr/local/opt/rethinkdb/homebrew.mxcl.rethinkdb.plist'
+alias reload='source ~/.zshrc'
+alias gitap='git add -p'
+alias ner='java -cp ~/bin/stanford-ner.jar'
+alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
+alias dockernuke='docker kill $(docker ps -qa)'
+alias docker_rmi_none='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
+alias docker_web_app='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer'
+alias compose_dev='(docker_env compose-dev && docker run compose_deploy:latest)'
+alias gr='cd ~/git_repos'
+alias mvn_clean_assembly='mvn clean compile assembly:single'
+function docker_ssh(){
+  eval "docker exec -it "${1}" /bin/bash"
+}
+function ps_kill_grep(){
+  eval "kill $(ps aux | grep '"${1}"' | awk '{print $2}')" 
+}
+function git_revert_file_to_previous_commit(){
+  eval "git show HEAD:"${1}" > "${1}""  
+}
+function print_alias(){
+  eval "type ${1}"  
+}
