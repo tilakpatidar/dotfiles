@@ -1,3 +1,6 @@
 [submodule ".ssh-find-agent"]
 	path = .ssh-find-agent
 	url = https://github.com/wwalker/ssh-find-agent.git
+[submodule ".iterm-color-schemes"]
+	path = .iterm-color-schemes
+	url = https://github.com/mbadolato/iTerm2-Color-Schemes.git
