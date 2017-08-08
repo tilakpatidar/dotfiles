@@ -33,7 +33,8 @@ export PATH=$PATH:$GOROOT/bin
 export LANG=en_US.UTF-8
 #Add macvim binaries to PATH
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
-
+export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.0
+export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 #replace vi with vim8
 alias vi="vim"
 export EDITOR="/usr/local/bin/vim"
