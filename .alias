@@ -27,6 +27,10 @@ function ps_kill_grep(){
 function git_revert_file_to_previous_commit(){
   eval "git show HEAD:"${1}" > "${1}""  
 }
+alias git_commit_in_prev_commit="git commit --amend --no-edit"
 function print_alias(){
   eval "type ${1}"  
 }
+function find_all_files_and_copy_to_dir(){
+  eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""
+  }
