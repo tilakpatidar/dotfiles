@@ -6,6 +6,7 @@ if ! pgrep -x "ssh-agent" > /dev/null; then
     eval `ssh-agent -s`
     ssh-add -k ~/.ssh/id_rsa
 fi
+export GPG_TTY=$(tty)
 source ~/.ssh-find-agent/ssh-find-agent.sh
 set_ssh_agent_socket
 export PATH=/usr/local/mysql/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH

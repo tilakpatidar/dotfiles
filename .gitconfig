@@ -1,8 +1,13 @@
 [user]
 	name = tilakpatidar
-	email = tilakpatidar@gmail.com
+  email = tilakpatidar@gmail.com
+  signingkey = CE45ED7B2AABB66C
 [core]
-  excludesfile = /home/tilak/.gitignore_global
+  excludesfile = /Users/tilak/.gitignore_global
 # Enforce SSH
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
+[commit]
+  gpgsign = true
+[tag]
+  gpgsign = true
