@@ -34,3 +34,9 @@ function print_alias(){
 function find_all_files_and_copy_to_dir(){
   eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""
   }
+
+alias gd="cd gobblin-dist"
+function avrotojson(){
+  eval "java -jar ~/Downloads/avro-tools-1.7.4.jar tojson ${1}"
+}
+alias gf="cd ~/git_repos/gobblin-fork"
