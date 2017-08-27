@@ -383,3 +383,6 @@ map <C-Down> <Plug>(expand_region_shrink)
 " --- Add copy paste shortcuts ---- "
 map <C-x> :!pbcopy<CR>
 vmap <C-c> :w !pbcopy<CR><CR>
+
+" --- Avoiding the escape key"
+:imap ii <Esc>
