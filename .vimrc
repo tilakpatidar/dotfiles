@@ -173,16 +173,16 @@ map <F2> :NERDTreeToggle<CR>
 " CTRL-p show hidden files
 let g:ctrlp_show_hidden = 1
 
-" Ctrl Right next tab
-map <C-Right> :tabNext<CR>
-noremap <C-Right> :tabNext<CR>
-inoremap <C-Right> :tabNext<CR>
-cnoremap <C-Right> :tabNext<CR>
+" Ctrl ] next tab
+map <C-]> :tabNext<CR>
+noremap <C-]> :tabNext<CR>
+inoremap <C-]> :tabNext<CR>
+cnoremap <C-]> :tabNext<CR>
 
-" CTRL-Left is previous tab
-noremap <C-Left> :<C-U>tabprevious<CR>
-inoremap <C-Left> <C-\><C-N>:tabprevious<CR>
-cnoremap <C-Left> <C-C>:tabprevious<CR>
+" CTRL [ is previous tab
+noremap <C-[> :<C-U>tabprevious<CR>
+inoremap <C-[> <C-\><C-N>:tabprevious<CR>
+cnoremap <C-[> <C-C>:tabprevious<CR>
 
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
