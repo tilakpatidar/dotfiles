@@ -386,3 +386,7 @@ vmap <C-c> :w !pbcopy<CR><CR>
 
 " --- Avoiding the escape key"
 :imap ii <Esc>
+
+" -- Improve scrolling speed
+set lazyredraw
+set ttyfast
