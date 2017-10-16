@@ -35,8 +35,19 @@ function find_all_files_and_copy_to_dir(){
   eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""
   }
 
-alias gd="cd gobblin-dist"
+alias gd="cd ~/git_repos/gobblin-fork/gobblin-dist"
 function avrotojson(){
-  eval "java -jar ~/Downloads/avro-tools-1.7.4.jar tojson ${1}"
+  eval "java -jar ~/bin/avro-tools-1.7.4.jar tojson ${1}"
 }
+alias parquet-tools="java -jar ~/bin/parquet-tools-1.6.0-IBM-7.jar"
 alias gf="cd ~/git_repos/gobblin-fork"
+# alias spark-shell="docker run -it -p 8088:8088 -p 8042:8042 -h sandbox sequenceiq/spark:1.6.0 bash -c \"spark-shell --master yarn-client --driver-memory 1g --executor-memory 1g --executor-cores 1\""
+alias downloads="cd ~/Downloads"
+docker-ip() {
+  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
+}
+alias git_merge_upstream_master="git fetch upstream && git merge upstream/master"
+alias parquet_as_json="parquet-tools cat --json "
+alias notes_on_distributed_systems="cd ~/GitBook/Library/Import/notes_on_distributed_systems"
+alias dotfiles="~/git_repos/dotfiles"
+source $HOME/.pam/.pam_alias
