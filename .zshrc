@@ -88,9 +88,11 @@ source ~/.bashrc
 source ~/.alias
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PYTHON_PATH=$PYTHON_PATH:/Library/Python/2.7/site-packages
-# export LC_ALL=C
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Use Ctrl-n for zsh-autosuggest
+bindkey '^n' autosuggest-accept
+
+# .rvm/bin should always be the last PATH element
 export PATH="$PATH:$HOME/.rvm/bin"
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
