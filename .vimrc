@@ -174,15 +174,15 @@ map <F2> :NERDTreeToggle<CR>
 let g:ctrlp_show_hidden = 1
 
 " Ctrl ] next tab
-map <C-]> :tabNext<CR>
-noremap <C-]> :tabNext<CR>
-inoremap <C-]> :tabNext<CR>
-cnoremap <C-]> :tabNext<CR>
+map <C-S-]> :tabNext<CR>
+noremap <C-S-]> :tabNext<CR>
+inoremap <C-S-]> :tabNext<CR>
+cnoremap <C-S-]> :tabNext<CR>
 
 " CTRL [ is previous tab
-noremap <C-[> :<C-U>tabprevious<CR>
-inoremap <C-[> <C-\><C-N>:tabprevious<CR>
-cnoremap <C-[> <C-C>:tabprevious<CR>
+noremap <C-S-[> :tabprevious<CR>
+inoremap <C-S-[> :tabprevious<CR>
+cnoremap <C-S-[> :tabprevious<CR>
 
 " ----- scrooloose/syntastic settings -----
 let g:syntastic_error_symbol = '✘'
