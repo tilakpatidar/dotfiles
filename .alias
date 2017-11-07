@@ -50,4 +50,9 @@ alias git_merge_upstream_master="git fetch upstream && git merge upstream/master
 alias parquet_as_json="parquet-tools cat --json "
 alias notes_on_distributed_systems="cd ~/GitBook/Library/Import/notes_on_distributed_systems"
 alias dotfiles="~/git_repos/dotfiles"
+function xargs_for_each(){
+ eval "xargs -n 1 ${1}"
+}
 source $HOME/.pam/.pam_alias
+alias research_papers="~/Documents/papers/"
+alias cmu="~/git_repos/cmu"
