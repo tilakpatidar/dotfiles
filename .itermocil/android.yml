@@ -1,0 +1,8 @@
+windows:
+  - name: android
+    root: ~
+    layout: tiled
+    panes:
+        - adb shell
+        - pidcat
+        - sra

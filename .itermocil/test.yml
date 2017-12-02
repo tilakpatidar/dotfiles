@@ -1,0 +1,7 @@
+windows:
+  - name: tail_prod_logs
+    root: ~
+    layout: tiled
+    panes:
+      - commands:
+        - ssh -t z-qa2.dnspam "sudo -i bash -c less /data/services/logs/store-replenishment-request.log "

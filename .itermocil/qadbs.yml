@@ -1,0 +1,8 @@
+windows:
+  - name: qadbs
+    root: ~
+    layout: even-horizontal
+    panes:
+      - srsQaDb
+      - sasQaDb
+      - mcdsQaDb
