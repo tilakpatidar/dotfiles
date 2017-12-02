@@ -56,3 +56,8 @@ function xargs_for_each(){
 source $HOME/.pam/.pam_alias
 alias research_papers="~/Documents/papers/"
 alias cmu="~/git_repos/cmu"
+alias clion='open -a /Applications/Clion.app'
+alias cat="ccat $*"
+alias scw="~/git_repos/scala_workbook/"
+alias ac="vi ~/.alias"
+alias stree="open -a /Applications/Sourcetree.app/"
