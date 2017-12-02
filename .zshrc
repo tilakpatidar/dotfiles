@@ -47,11 +47,11 @@ ZSH_THEME="blinks"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugns would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker web-search alias-tips zsh-autosuggestions globalias sublime)
+plugins=(git docker web-search alias-tips zsh-autosuggestions globalias sublime zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,6 +79,7 @@ export LANG=en_US.UTF-8
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+#B
 #
 # Example aliases
 alias zshconfig="vi ~/.zshrc"
@@ -92,7 +93,10 @@ export PYTHON_PATH=$PYTHON_PATH:/Library/Python/2.7/site-packages
 # Use Ctrl-n for zsh-autosuggest
 bindkey '^n' autosuggest-accept
 
+# Unset useless RPROMPT
+unset RPROMPT
 # .rvm/bin should always be the last PATH element
 export PATH="$PATH:$HOME/.rvm/bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
