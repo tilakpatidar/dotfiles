@@ -1,4 +1,4 @@
-cowsay containers are awesome
+(cowsay containers are awesome &)
 # Andriod
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH=${PATH}:${ANDROID_HOME}/emulator
@@ -13,14 +13,13 @@ cd () { builtin cd "$@" && (
 if [ -d .git ]; then
 ([ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's/\// /g') | cut -f1) ] && echo "${green} HEAD is up to date with git remote" || echo "${red} ###### Remote git repo has changed! #####";) &
 fi;
-) }
-
+)}
 
 # SSH agent
 if ! pgrep -x "ssh-agent" > /dev/null; then
-    echo "[INFO] SSH agent not running, restarting"
-    eval `ssh-agent -s`
-    ssh-add -k ~/.ssh/id_rsa
+  echo "[INFO] SSH agent not running, restarting"
+  eval `ssh-agent -s`
+  ssh-add -k ~/.ssh/id_rsa
 fi
 export GPG_TTY=$(tty)
 source ~/.ssh-find-agent/ssh-find-agent.sh
@@ -62,10 +61,10 @@ export EDITOR="/usr/local/bin/vim"
 
 # Haskell
 # Add GHC 7.10.3 to the PATH, via https://ghcformacosx.github.io/
-export GHC_DOT_APP="/Applications/ghc-7.10.3.app"
-if [ -d "$GHC_DOT_APP" ]; then
-  export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
-fi
+# export GHC_DOT_APP="/Applications/ghc-7.10.3.app"
+# if [ -d "$GHC_DOT_APP" ]; then
+  # export PATH="${HOME}/.local/bin:${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+# fi
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
