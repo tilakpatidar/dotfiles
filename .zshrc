@@ -51,7 +51,7 @@ ZSH_THEME="blinks"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker web-search alias-tips zsh-autosuggestions globalias sublime zsh-syntax-highlighting)
+plugins=(git docker alias-tips zsh-autosuggestions globalias sublime zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
