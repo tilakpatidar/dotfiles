@@ -61,3 +61,17 @@ alias cat="ccat $*"
 alias scw="~/git_repos/scala_workbook/"
 alias ac="vi ~/.alias"
 alias stree="open -a /Applications/Sourcetree.app/"
+alias aliasfile="vi ~/.alias"
+alias pamaliasfile="vi ~/.pam/.pam_alias"
+
+function addalias(){
+  echo "alias $1=\"${@:2}\"" >> ~/.alias
+  reload
+}
+function addaliasfn(){
+    echo "function $1(){${@:2}}" >> ~/.alias
+    reload
+}
+alias jepsen_control="docker exec -it jepsen-control bash"
+function jepsen_node(){docker exec -it jepsen-$1 bash}
+alias bashrc="vi /Users/tilak/.bashrc"
