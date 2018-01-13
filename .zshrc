@@ -87,6 +87,7 @@ alias zshconfig="vi ~/.zshrc"
 
 source ~/.bashrc
 source ~/.alias
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PYTHON_PATH=$PYTHON_PATH:/Library/Python/2.7/site-packages
 
@@ -97,11 +98,33 @@ bindkey '^n' autosuggest-accept
 unset RPROMPT
 # .rvm/bin should always be the last PATH element
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# import fzf file search on Ctrl-T
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Enable autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# Source RVM env
 [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Trigger git remote plugin
-if [ -d .git ]; then
-  cd .git && cd ..
-fi;
+# Change Globalias defaults ctrl-space expands aliases now
+# control-space expands all aliases, including global
+bindkey -M emacs "^ " globalias
+bindkey -M viins "^ " globalias
+
+# space to make a normal space
+bindkey -M emacs " " magic-space
+bindkey -M viins " " magic-space
+
+# normal space during searches
+bindkey -M isearch " " magic-space
+
+# Enable direnv
+eval "$(direnv hook zsh)"
+
+source ~/.zsh-git-prompt/zshrc.sh
+
+PROMPT='%{%f%k%b%}
+%{%K{${bkg}}%B%F{green}%}%n%{%B%F{blue}%}@%{%B%F{cyan}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_super_status) 
+%{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%} %#%{%f%k%b%} '
