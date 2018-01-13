@@ -75,3 +75,10 @@ function addaliasfn(){
 alias jepsen_control="docker exec -it jepsen-control bash"
 function jepsen_node(){docker exec -it jepsen-$1 bash}
 alias bashrc="vi /Users/tilak/.bashrc"
+alias gfu="git fetch upstream"
+function findpidbyport(){sudo lsof -i :$1 | grep LISTEN}
+alias chef_auto_correct="bundle exec rake rubocop:auto_correct"
+alias knife_upload_role="bundle exec knife upload role from roles/z-qa2.json"
+alias dm="docker-machine"
+alias hdp="ssh root@localhost -p 2222"
+alias rubymine="open -a /Applications/RubyMine.app"
