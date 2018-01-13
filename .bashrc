@@ -6,15 +6,6 @@ export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-red=`tput setaf 1`                                                          
-green=`tput setaf 2`
-# cd and alert if git pull required
-cd () { builtin cd "$@" && (
-if [ -d .git ]; then
-([ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | sed 's/\// /g') | cut -f1) ] && echo "${green} HEAD is up to date with git remote" || echo "${red} ###### Remote git repo has changed! #####";) &
-fi;
-)}
-
 # SSH agent
 if ! pgrep -x "ssh-agent" > /dev/null; then
   echo "[INFO] SSH agent not running, restarting"
