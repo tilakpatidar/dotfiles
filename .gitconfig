@@ -1,13 +1,23 @@
 [user]
 	name = tilakpatidar
-  email = tilakpatidar@gmail.com
+	email = tilakpatidar@gmail.com
   signingkey = CE45ED7B2AABB66C
 [core]
-  excludesfile = /Users/tilak/.gitignore_global
+	excludesfile = /Users/tilak/.gitignore_global
 # Enforce SSH
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
 [commit]
   gpgsign = true
+	template = /Users/tilak/.stCommitMsg
 [tag]
   gpgsign = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
+[status]
+  short = true
+  branch = true
