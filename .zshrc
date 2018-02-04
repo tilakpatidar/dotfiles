@@ -82,11 +82,11 @@ export LANG=en_US.UTF-8
 #B
 #
 # Example aliases
-alias zshconfig="vi ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.bashrc
 source ~/.alias
+source ~/aliases/.*
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PYTHON_PATH=$PYTHON_PATH:/Library/Python/2.7/site-packages
