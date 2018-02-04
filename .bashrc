@@ -1,4 +1,4 @@
-(cowsay containers are awesome &)
+# (cowsay containers are awesome &)
 # Andriod
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export PATH=${PATH}:${ANDROID_HOME}/emulator
@@ -59,3 +59,17 @@ export EDITOR="/usr/local/bin/vim"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# Little note taking hack
+n() {
+  mkdir -p .notes
+  vi .notes/"$*".md
+}
+
+ni(){
+  mkdir -p .notes/  
+}
+
+nls() {
+  ls -c .notes/ | grep "$*"
+}
