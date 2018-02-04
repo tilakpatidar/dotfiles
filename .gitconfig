@@ -3,7 +3,8 @@
 	email = tilakpatidar@gmail.com
   signingkey = CE45ED7B2AABB66C
 [core]
-	excludesfile = /Users/tilak/.gitignore_global
+  excludesfile = /Users/tilak/.gitignore_global
+  commentChar = ";"
 # Enforce SSH
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
@@ -17,7 +18,7 @@
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	trustExitCode = true
 [status]
   short = true
   branch = true
