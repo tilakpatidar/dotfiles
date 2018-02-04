@@ -1,84 +1,79 @@
-function docker_env() {
-  eval "$(docker-machine env "${1:-default}")"
-}
-alias wp="./node_modules/.bin/webpack -d"
-alias npmrs="npm run-script"
-alias java_repl="java -jar ~/bin/javarepl-dev.jar" 
-alias daisy_diff="java -jar ~/bin/daisydiff.jar"
-alias convert_research_paper="python ~/bin/convert_research_paper"
-alias rethinkdb.start='launchctl load /usr/local/opt/rethinkdb/homebrew.mxcl.rethinkdb.plist'
-alias rethinkdb.stop='launchctl unload /usr/local/opt/rethinkdb/homebrew.mxcl.rethinkdb.plist'
-alias reload='source ~/.zshrc'
-alias gitap='git add -p'
-alias ner='java -cp ~/bin/stanford-ner.jar'
-alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
+## Docker aliases ##
+alias docker_env='function() {eval "$(docker-machine env "${1:-default}")"}'
 alias dockernuke='docker kill $(docker ps -qa)'
 alias docker_rmi_none='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 alias docker_web_app='docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer'
 alias compose_dev='(docker_env compose-dev && docker run compose_deploy:latest)'
-alias gr='cd ~/git_repos'
-alias mvn_clean_assembly='mvn clean compile assembly:single'
-function docker_ssh(){
-  eval "docker exec -it "${1}" /bin/bash"
-}
-function ps_kill_grep(){
-  eval "kill $(ps aux | grep '"${1}"' | awk '{print $2}')" 
-}
-function git_revert_file_to_previous_commit(){
-  eval "git show HEAD:"${1}" > "${1}""  
-}
-alias git_commit_in_prev_commit="git commit --amend --no-edit"
-function print_alias(){
-  eval "type ${1}"  
-}
-function find_all_files_and_copy_to_dir(){
-  eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""
-  }
+alias docker_ssh='function(){eval "docker exec -it "${1}" /bin/bash"}'
+alias docker-ip='function() { docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@" }'
+alias dm="docker-machine"
 
-alias gd="cd ~/git_repos/gobblin-fork/gobblin-dist"
-function avrotojson(){
-  eval "java -jar ~/bin/avro-tools-1.7.4.jar tojson ${1}"
-}
-alias parquet-tools="java -jar ~/bin/parquet-tools-1.6.0-IBM-7.jar"
-alias gf="cd ~/git_repos/gobblin-fork"
-# alias spark-shell="docker run -it -p 8088:8088 -p 8042:8042 -h sandbox sequenceiq/spark:1.6.0 bash -c \"spark-shell --master yarn-client --driver-memory 1g --executor-memory 1g --executor-cores 1\""
-alias downloads="cd ~/Downloads"
-docker-ip() {
-  docker inspect --format '{{ .NetworkSettings.IPAddress }}' "$@"
-}
+## IDE aliases ##
+alias wp="./node_modules/.bin/webpack -d"
+alias rubymine="open -a /Applications/RubyMine.app"
+alias clion='open -a /Applications/Clion.app'
+alias code='function(){VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*}'
+alias stree="open -a /Applications/Sourcetree.app/"
+
+## git aliases ##
+alias git_revert_file_to_previous_commit='function(){eval "git show HEAD:"${1}" > "${1}"" }'
+alias git_commit_in_prev_commit="git commit --amend --no-edit"
 alias git_merge_upstream_master="git fetch upstream && git merge upstream/master"
-alias parquet_as_json="parquet-tools cat --json "
-alias notes_on_distributed_systems="cd ~/GitBook/Library/Import/notes_on_distributed_systems"
-alias dotfiles="~/git_repos/dotfiles"
-function xargs_for_each(){
- eval "xargs -n 1 ${1}"
-}
-source $HOME/.pam/.pam_alias
+alias git_rebase_revert="git reset --hard ORIG_HEAD"
+alias gsh="git stash"
+alias gs="git show"
+alias gif="vi .gitignore"
+alias ggif="vi /Users/tilak/.gitignore_global"
+alias ggg="git status"
+alias git_commits_in_first_that_are_not_in_second='function(){git log $1..$2}'
+alias gitap='git add -p'
+alias gfu="git fetch upstream"
+
+## Directory aliases ##
+alias gr='cd ~/git_repos'
+alias gd="cd ~/git_repos/gobblin-fork/gobblin-dist"
+alias gf="cd ~/git_repos/gobblin-fork"
+alias downloads="cd ~/Downloads"
 alias research_papers="~/Documents/papers/"
 alias cmu="~/git_repos/cmu"
-alias clion='open -a /Applications/Clion.app'
+alias dotfiles="~/git_repos/dotfiles"
+alias notes_on_distributed_systems="cd ~/GitBook/Library/Import/notes_on_distributed_systems" 
+
+alias java_repl="java -jar ~/bin/javarepl-dev.jar" 
+alias daisy_diff="java -jar ~/bin/daisydiff.jar"
+alias convert_research_paper="python ~/bin/convert_research_paper"
+alias ner='java -cp ~/bin/stanford-ner.jar'
+alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
+alias mvn_clean_assembly='mvn clean compile assembly:single'
+alias ps_kill_grep='function(){eval "kill $(ps aux | grep '"${1}"' | awk '{print $2}')" }'
+alias print_alias='function(){eval "type ${1}"}'
+alias find_all_files_and_copy_to_dir='function(){eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""}'
+
+alias avrotojson='function(){eval "java -jar ~/bin/avro-tools-1.7.4.jar tojson ${1}"}'
+alias parquet-tools="java -jar ~/bin/parquet-tools-1.6.0-IBM-7.jar"
+# alias spark-shell="docker run -it -p 8088:8088 -p 8042:8042 -h sandbox sequenceiq/spark:1.6.0 bash -c \"spark-shell --master yarn-client --driver-memory 1g --executor-memory 1g --executor-cores 1\""
+alias parquet_as_json="parquet-tools cat --json "
+alias xargs_for_each='function(){eval "xargs -n 1 ${1}"}'
 alias cat="ccat $*"
 alias scw="~/git_repos/scala_workbook/"
-alias ac="vi ~/.alias"
-alias stree="open -a /Applications/Sourcetree.app/"
-alias aliasfile="vi ~/.alias"
-alias pamaliasfile="vi ~/.pam/.pam_alias"
-
-function addalias(){
-  echo "alias $1=\"${@:2}\"" >> ~/.alias
-  reload
-}
-function addaliasfn(){
-    echo "function $1(){${@:2}}" >> ~/.alias
-    reload
-}
+alias addalias='function(){echo "alias $1=\"${@:2}\"" >> ~/.alias && reload }'
 alias jepsen_control="docker exec -it jepsen-control bash"
-function jepsen_node(){docker exec -it jepsen-$1 bash}
-alias bashrc="vi /Users/tilak/.bashrc"
-alias gfu="git fetch upstream"
-function findpidbyport(){sudo lsof -i :$1 | grep LISTEN}
+alias jepsen_node='function(){docker exec -it jepsen-$1 bash}'
+alias findpidbyport='function(){sudo lsof -i :$1 | grep LISTEN}'
 alias chef_auto_correct="bundle exec rake rubocop:auto_correct"
 alias knife_upload_role="bundle exec knife upload role from roles/z-qa2.json"
-alias dm="docker-machine"
-alias hdp="ssh root@localhost -p 2222"
-alias rubymine="open -a /Applications/RubyMine.app"
+alias hdp="ssh root@sandbox-hdp.hortonworks.com -p 2222"
+alias getprodpdfs="scp root@z-prod10.dnspam:/data/services/supplier-email-order/direct_orders_pdf_archive/archived/* ."
+alias zqaVm1="ssh -t z-qa-vm1.dnspam \"sudo -i\""
+alias chef_client_log="chef-client --log_level=debug"
+function addaliasfn() {echo "alias $1='function(){${@:2}}'" >> ~/.alias && reload }
+
+# Source files aliases
+
+alias zshconfig="vi ~/.zshrc && reload"
+alias reload='source ~/.zshrc'
+alias bashrc="vi ~/.bashrc"
+alias aliasfile="vi ~/.alias && reload"
+alias pamaliasfile="vi ~/.pam/.pam_alias && reload"
+# function sa(){ found=$({alias & cat ~/.alias ~/.pam/.pam_alias} | sed -e 's/alias //g' -e 's/function //g' -e 's/=.*//g' -e 's/()//g' -e 's/{.*//g' | sort -r -u | fzf) && eval ${found} }
+
