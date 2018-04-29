@@ -19,7 +19,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'flazz/vim-colorschemes'
 " ---  Enable for gnome-terminal not working for iterm2 ---- "
-" Plugin 'KevinGoodsell/vim-csexact'
+Plugin 'KevinGoodsell/vim-csexact'
 " ----- Vim as a programmer's text editor -----------------------------
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -66,7 +66,7 @@ Plugin 'lfilho/cosco.vim'
 " --- Intellij Style multi cursor --- 
 Plugin 'terryma/vim-multiple-cursors'
 " --- CodeCompletion ---
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 
 " --- Commenting "
 Plugin 'tomtom/tlib_vim'
@@ -110,6 +110,7 @@ set incsearch
 set hlsearch
 syntax on
 
+
 set mouse=a
 
 " Required to get theme colors working
@@ -122,7 +123,7 @@ hi clear SignColumn
 
 " ----- altercation/vim-colors-solarized settings -----
 " Toggle this to "light" for light colorscheme
-set background=light
+set background=dark
 
 " Uncomment the next line if your terminal is not configured for solarized
 let g:solarized_termcolors=256
@@ -130,9 +131,11 @@ let g:solarized_termcolors=256
 " Set the colorscheme
 " --- set gvim vs vim config ---- "
 if has('gui_running')
-  colorscheme codeschool
+  colorscheme PaperColor
 else
-  colorscheme CandyPaper
+  colorscheme PaperColor
+  let g:solarized_visibility = "high"
+  let g:solarized_contrast = "high"
 endif
 
 " Search highlight color
@@ -147,7 +150,7 @@ set laststatus=2
 "     https://github.com/abertsch/Menlo-for-Powerline
 " download all the .ttf files, double-click on them and click "Install"
 " Finally, uncomment the next line
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 
 " Show PASTE if in paste mode
 let g:airline_detect_paste=1
@@ -159,7 +162,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " ----- jistr/vim-nerdtree-tabs -----
 " Open/close NERDTree Tabs with \t
-"nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
+" nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
 " To have NERDTree always open on startup
 let g:nerdtree_tabs_open_on_console_startup = 1
@@ -262,17 +265,18 @@ set expandtab
 map <C-u> :u<CR>
 
 " ------- TComment shortcut --- "
-map <C-?> :TComment<CR>
+map <C-/> :TComment<CR>
 
 " ------- YouCompeleteMe shortcut ---"
 " map <C-]> :YcmCompleter GoToImprecise<CR>
 
-" --- Font settings --- "
-set guifont=Hack\ 16
 
 " --- Cursor settings --- "
-highlight Cursor guifg=white guibg=white
-highlight iCursor guifg=white guibg=steelblue
+" highlight Cursor guifg=white guibg=white
+" highlight iCursor guifg=white guibg=steelblue
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set guicursor=a:hor2-Cursor
 set guicursor+=i:hor2-Cursor
 set guicursor+=n:block-Cursor
@@ -325,8 +329,11 @@ endif
 " Make double-<Esc> clear search highlights
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
-" Disable autosave session
-let g:session_autosave = 'no'
+" Enable autosave session
+let g:session_autosave = 'prompt'
+let g:session_autosave_periodic = 1
+let g:session_autoload = 'yes'
+let g:session_default_to_last = 1
 
 " ---- Code snippets configuration ----
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -388,5 +395,28 @@ vmap <C-c> :w !pbcopy<CR><CR>
 :imap ii <Esc>
 
 " -- Improve scrolling speed
-set lazyredraw
-set ttyfast
+" set lazyredraw
+" set ttyfast
+
+" -- Hide extra nerdtree 
+autocmd VimEnter * call CloseExtraNERDTree()
+
+" If vim is started with a file, simply show that file
+" If vim is started with nothing or a directory close extra NERDTree buffer
+function CloseExtraNERDTree()
+  wincmd l " move to right pane
+  let l:main_bufnr = bufnr('%')
+  let l:fname = expand('%') " get name of current buffer
+  if l:fname ==# 'NERD_tree_1'
+    exe bufwinnr(l:main_bufnr) . "wincmd w"
+    bd
+  endif
+endfunction
+" --- Font settings --- "
+set guifont=Fira\ Code:h17
+
+" -- Disable python2 support -- "
+let g:python_host_prog  = '/usr/bin/python2.7'
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:loaded_python_provider = 1
+
