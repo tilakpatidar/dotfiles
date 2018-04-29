@@ -72768,13 +72768,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>457 206 445 103 0 0 1280 777 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 139 606 456 0 0 1920 1080 </string>
+	<string>171 94 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>144 142 796 473 0 0 1280 777 </string>
+	<string>361 123 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 14 1275 753 0 0 1280 777 </string>
+	<string>0 -1 1440 873 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>65 4 890 577 0 0 1280 777 </string>
+	<string>129 -17 890 598 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -73460,7 +73460,7 @@
 					<key>partial</key>
 					<true/>
 					<key>regex</key>
-					<string>Enter passphrase for key</string>
+					<string>Enter passphrase for key|Password</string>
 				</dict>
 				<dict>
 					<key>action</key>
@@ -74310,6 +74310,8 @@
 			<string>/Users/tilak</string>
 		</dict>
 	</array>
+	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
