@@ -43,14 +43,16 @@ export LANG=en_US.UTF-8
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
 
 # HADOOP
-export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.0
+export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.0/libexec
+export HIVE_HOME=/usr/local/Cellar/hive/2.3.1/libexec
+export HCAT_HOME=/usr/local/opt/hive/libexec/hcatalog
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 # Replace vi with vim8
-alias vi="vim"
+alias vi="nvim"
 
 # Set default editor
-export EDITOR="/usr/local/bin/vim"
+export EDITOR="/usr/local/bin/nvim"
 
 # Haskell
 # Add GHC 7.10.3 to the PATH, via https://ghcformacosx.github.io/
