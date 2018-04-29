@@ -57,8 +57,8 @@ alias xargs_for_each='function(){eval "xargs -n 1 ${1}"}'
 alias cat="ccat $*"
 alias scw="~/git_repos/scala_workbook/"
 alias addalias='function(){echo "alias $1=\"${@:2}\"" >> ~/.alias && reload }'
-alias jepsen_control="docker exec -it jepsen-control bash"
-alias jepsen_node='function(){docker exec -it jepsen-$1 bash}'
+alias jepsen_control="docker_env default && docker exec -it jepsen-control bash"
+alias jepsen_node='function(){docker_env default && docker exec -it jepsen-$1 bash}'
 alias findpidbyport='function(){sudo lsof -i :$1 | grep LISTEN}'
 alias chef_auto_correct="bundle exec rake rubocop:auto_correct"
 alias knife_upload_role="bundle exec knife upload role from roles/z-qa2.json"
@@ -75,5 +75,30 @@ alias reload='source ~/.zshrc'
 alias bashrc="vi ~/.bashrc"
 alias aliasfile="vi ~/.alias && reload"
 alias pamaliasfile="vi ~/.pam/.pam_alias && reload"
-# function sa(){ found=$({alias & cat ~/.alias ~/.pam/.pam_alias} | sed -e 's/alias //g' -e 's/function //g' -e 's/=.*//g' -e 's/()//g' -e 's/{.*//g' | sort -r -u | fzf) && eval ${found} }
+function sa(){ found=$({alias & cat ~/.alias ~/.pam/.pam_alias} | sed -e 's/alias //g' -e 's/function //g' -e 's/=.*//g' -e 's/()//g' -e 's/{.*//g' | sort -r -u | fzf) && eval ${found} }
 
+alias msqllocal="cd /Users/tilak/git_repos/mopar/pricing-tool-api && build_scripts/sqlcli.sh"
+alias pmock="cd /Users/tilak/git_repos/mopar/pricing-ui/pricing-mock"
+alias msqlstart="docker start pricing_db"
+alias mockauth="cd /Users/tilak/git_repos/mopar/pricing-tool-api && sh build_scripts/mockauth.sh start"
+alias msqlseedlocal="bash build_scripts/seed_data.sh -l"
+alias ptardb="pta && sh build_scripts/resetDb.sh"
+alias ptalb="pta && sh build_scripts/local_build.sh"
+alias ptastart="pta && ./gradlew clean bootRun"
+alias msqldev="msqllocal -d"
+alias msqlqa="msqllocal -q"
+alias lb="replace \"spring.data.elasticsearch.cluster-name=elasticsearch\" \"#spring.data.elasticsearch.cluster-name=elasticsearch\" -- src/main/resources/application.properties ; replace \"spring.data.elasticsearch.cluster-nodes=localhost:9300\" \"#spring.data.elasticsearch.cluster-nodes=localhost:9300\" -- src/main/resources/application.properties ; ./build_scripts/local_build.sh"
+alias gupp="gup && gp"
+alias cleanBuild="./gradlew clean build"
+alias jepsen-compose="docker_env default && cd $JEPSEN_ROOT/docker && ./up.sh --dev $*"
+alias grh="git reset --hard"
+alias seed_data="build_scripts/seed_data.sh"
+alias git_rm_untracked_show="git clean -n"
+alias git_rm_untracked_delete="git clean -f"
+alias reset_db_dev="chmod +x build_scripts/resetDb.sh && rm -rf out/ && rm -rf build/ && ./gradlew clean build -x checkstyleMain -x findbugsMain -x test -x pmdMain && build_scripts/resetDb.sh dev && gco build_scripts/resetDb.sh"
+alias reset_db_test="chmod +x build_scripts/resetDb.sh && rm -rf out/ && rm -rf build/ && ./gradlew clean build -x checkstyleMain -x findbugsMain -x test -x pmdMain && build_scripts/resetDb.sh test && gco build_scripts/resetDb.sh"
+alias simd="sysctl -a | grep machdep.cpu.features"
+alias server="python -m SimpleHTTPServer 8000"
+function orc-total-rows(){orc-metadata $@ | jq -s -c 'map(.rows) | add'}
+function orc-schema(){orc-metadata $@ | jq -s 'map(.type)'}
+alias dataikuhome="/Applications/DataScienceStudio.app/Contents/Resources/kit"
