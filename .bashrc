@@ -5,6 +5,8 @@ export PATH=${PATH}:${ANDROID_HOME}/emulator
 export PATH=~/Library/Android/sdk/tools:$PATH
 export PATH=~/Library/Android/sdk/platform-tools:$PATH
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+export JEPSEN_ROOT=/Users/tilak/git_repos/jepsen/
+
 
 # SSH agent
 if ! pgrep -x "ssh-agent" > /dev/null; then
