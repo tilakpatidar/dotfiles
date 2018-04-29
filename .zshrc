@@ -90,6 +90,7 @@ source ~/aliases/.*
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PYTHON_PATH=$PYTHON_PATH:/Library/Python/2.7/site-packages
+export DATAIKU_HOME="$HOME/Library/DataScienceStudio/dss_home"
 
 # Use Ctrl-n for zsh-autosuggest
 bindkey '^n' autosuggest-accept
@@ -98,6 +99,7 @@ bindkey '^n' autosuggest-accept
 unset RPROMPT
 # .rvm/bin should always be the last PATH element
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$DATAIKU_HOME/bin:$DATAIKU_HOME/scripts/linked"
 
 # import fzf file search on Ctrl-T
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
