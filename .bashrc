@@ -63,17 +63,5 @@ export EDITOR="/usr/local/bin/nvim"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-
-# Little note taking hack
-n() {
-  mkdir -p .notes
-  vi .notes/"$*".md
-}
-
-ni(){
-  mkdir -p .notes/  
-}
-
-nls() {
-  ls -c .notes/ | grep "$*"
-}
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="~/git_repos/gobblin-fork/gobblin-dist/bin:$PATH"
