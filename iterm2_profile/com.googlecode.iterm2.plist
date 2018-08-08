@@ -72770,16 +72770,30 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>171 94 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>361 123 796 473 0 0 1440 877 </string>
+	<string>79 205 918 495 0 0 1440 877 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>140 164 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 -1 1440 873 0 0 1440 877 </string>
+	<string>1 5 1438 872 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>129 -17 890 598 0 0 1440 877 </string>
+	<string>129 4 890 577 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
 			<key>ASCII Anti Aliased</key>
 			<true/>
+			<key>AWDS Pane Directory</key>
+			<string></string>
+			<key>AWDS Pane Option</key>
+			<string>Recycle</string>
+			<key>AWDS Tab Directory</key>
+			<string></string>
+			<key>AWDS Tab Option</key>
+			<string>No</string>
+			<key>AWDS Window Directory</key>
+			<string></string>
+			<key>AWDS Window Option</key>
+			<string>No</string>
 			<key>Ambiguous Double Width</key>
 			<false/>
 			<key>Ansi 0 Color</key>
@@ -73057,7 +73071,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>Recycle</string>
+			<string>Advanced</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -74458,7 +74472,7 @@
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>TabViewType</key>
