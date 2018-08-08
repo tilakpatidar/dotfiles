@@ -1,0 +1,3 @@
+#echo "Post j hook"
+ls -a | grep -w -q ".env" && source .env
+ls -a | grep -w -q ".env_ex_" && source .env_ex_
