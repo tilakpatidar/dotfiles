@@ -50,7 +50,7 @@ alias print_alias='function(){eval "type ${1}"}'
 alias find_all_files_and_copy_to_dir='function(){eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""}'
 
 alias avrotojson='function(){eval "java -jar ~/bin/avro-tools-1.7.4.jar tojson ${1}"}'
-alias parquet-tools="java -jar ~/bin/parquet-tools-1.6.0-IBM-7.jar"
+alias parquet-tools="java -jar ~/bin/parquet-tools-1.10.0.jar"
 # alias spark-shell="docker run -it -p 8088:8088 -p 8042:8042 -h sandbox sequenceiq/spark:1.6.0 bash -c \"spark-shell --master yarn-client --driver-memory 1g --executor-memory 1g --executor-cores 1\""
 alias parquet_as_json="parquet-tools cat --json "
 alias xargs_for_each='function(){eval "xargs -n 1 ${1}"}'
@@ -102,3 +102,7 @@ alias server="python -m SimpleHTTPServer 8000"
 function orc-total-rows(){orc-metadata $@ | jq -s -c 'map(.rows) | add'}
 function orc-schema(){orc-metadata $@ | jq -s 'map(.type)'}
 alias dataikuhome="/Applications/DataScienceStudio.app/Contents/Resources/kit"
+alias spark_history_server_stop="/usr/local/Cellar/apache-spark/2.2.0/libexec/sbin/stop-history-server.sh"
+alias spark_history_server_start="/usr/local/Cellar/apache-spark/2.2.0/libexec/sbin/start-history-server.sh"
+alias paj="parquet_as_json"
+alias git_first_commit="glo | head -n 1 | cut -d \" \" -f1"
