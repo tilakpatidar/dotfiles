@@ -1,4 +1,9 @@
 *~
 .DS_Store
 .idea/*
+migrations/out/*
+contracts/test/.bundle/*
 *_ex_*
+.notes/
+.gitconfig
+node_modules/
