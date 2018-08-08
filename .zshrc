@@ -83,14 +83,12 @@ export LANG=en_US.UTF-8
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-source ~/.bashrc
-source ~/.alias
-source ~/aliases/.*
+export PROMPT='%{%f%k%b%}
+%{%K{${bkg}}%B%F{green}%}%n%{%B%F{blue}%}@%{%B%F{cyan}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_super_status) 
+%{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%} %#%{%f%k%b%} '
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export PYTHON_PATH=$PYTHON_PATH:/Library/Python/2.7/site-packages
-export DATAIKU_HOME="$HOME/Library/DataScienceStudio/dss_home"
 
 # Use Ctrl-n for zsh-autosuggest
 bindkey '^n' autosuggest-accept
@@ -106,6 +104,11 @@ export PATH="$PATH:$DATAIKU_HOME/bin:$DATAIKU_HOME/scripts/linked"
 
 # Enable autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+
+source ~/.bashrc
+source ~/.alias
+source ~/aliases/.*
 
 # Source RVM env
 [[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
@@ -123,10 +126,9 @@ bindkey -M viins " " magic-space
 bindkey -M isearch " " magic-space
 
 # Enable direnv
-eval "$(direnv hook zsh)"
+#eval "$(direnv hook zsh)"
 
 source ~/.zsh-git-prompt/zshrc.sh
-
-PROMPT='%{%f%k%b%}
-%{%K{${bkg}}%B%F{green}%}%n%{%B%F{blue}%}@%{%B%F{cyan}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_super_status) 
-%{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%} %#%{%f%k%b%} '
+source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
+# To trigger loading of .env file
+cd .
