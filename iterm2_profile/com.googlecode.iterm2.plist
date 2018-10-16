@@ -72770,13 +72770,13 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>171 94 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>79 205 918 495 0 0 1440 877 </string>
+	<string>181 185 918 512 0 0 1280 777 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>140 164 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1 5 1438 872 0 0 1440 877 </string>
+	<string>2 14 1275 753 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>129 4 890 577 0 0 1440 877 </string>
+	<string>242 6 890 577 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
