@@ -48,6 +48,9 @@ export PATH="~/git_repos/gobblin-fork/gobblin-dist/bin:$PATH"
 export DATAIKU_RESOURCES="/Applications/DataScienceStudio.app/Contents/Resources/kit"
 export DATAIKU_HOME="$HOME/Library/DataScienceStudio/dss_home/"
 export PATH="$PATH:/Users/tilak/Library/Python/2.7/bin"
+export KAFKA_HOME="$HOME/bin/kafka"
+export MANAGE_LOCAL_HBASE=true
+export MANAGE_LOCAL_SOLR=true
 ls -a | grep -w -q ".env" && source .env
 ls -a | grep -w -q ".env_ex_" && source .env_ex_
 

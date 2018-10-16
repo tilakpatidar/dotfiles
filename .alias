@@ -106,3 +106,5 @@ alias spark_history_server_stop="/usr/local/Cellar/apache-spark/2.2.0/libexec/sb
 alias spark_history_server_start="/usr/local/Cellar/apache-spark/2.2.0/libexec/sbin/start-history-server.sh"
 alias paj="parquet_as_json"
 alias git_first_commit="glo | head -n 1 | cut -d \" \" -f1"
+alias ds="docker ps"
+alias ec="ebook-convert"
