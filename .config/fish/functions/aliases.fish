@@ -1,0 +1,1 @@
+/Users/patidar/.alias.fish
