@@ -12,3 +12,13 @@ vim +PluginInstall +qall
 
 curl -L https://iterm2.com/shell_integration/zsh \
 -o ~/.iterm2_shell_integration.zsh
+
+cd ~
+git clone https://github.com/olivierverdier/zsh-git-prompt.git
+
+defaults write com.googlecode.iterm2 MaxPasteHistoryEntries -int 100
+defaults write com.googlecode.iterm2 QuickPasteBytesPerCall -int 1000000
+defaults write com.googlecode.iterm2 QuickPasteDelayBetweenCalls -float 0.01
+defaults write com.googlecode.iterm2.plist SmartCursorColorBgThreshold -float 0.5
+defaults write com.googlecode.iterm2.plist SmartCursorColorFgThreshold -float 0.75
+touch ~/.hushlogin
