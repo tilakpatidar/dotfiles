@@ -1,3 +1,3 @@
 function cat
-	ccat $argv
+	bat --theme TwoDark $argv
 end

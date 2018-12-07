@@ -1,3 +1,3 @@
 function k
-	kitchen
+	kitchen $argv
 end
