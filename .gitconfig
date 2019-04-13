@@ -1,10 +1,11 @@
 [user]
 	name = tilakpatidar
 	email = tilakpatidar@gmail.com
-  signingkey = CE45ED7B2AABB66C
+  signingkey = 3F1C7463
 [core]
-  excludesfile = /Users/tilak/.gitignore_global
+	excludesfile = /Users/tilak/.gitignore_global
   commentChar = ";"
+	autocrlf = input
 # Enforce SSH
 [url "ssh://git@github.com/"]
   insteadOf = https://github.com/
@@ -22,3 +23,7 @@
 [status]
   short = true
   branch = true
+[gpg]
+	program = gpg2
+[init]
+	templatedir = /Users/tilak/.git-template
