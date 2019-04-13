@@ -28,3 +28,5 @@ defaults write com.googlecode.iterm2 QuickPasteBytesPerCall -int 1000000
 defaults write com.googlecode.iterm2 QuickPasteDelayBetweenCalls -float 0.01
 defaults write com.googlecode.iterm2.plist SmartCursorColorBgThreshold -float 0.5
 defaults write com.googlecode.iterm2.plist SmartCursorColorFgThreshold -float 0.75
+
+curl --silent  https://raw.githubusercontent.com/thoughtworks/talisman/master/global_install_scripts/install.bash > /tmp/install_talisman.bash and; /bin/bash /tmp/install_talisman.bash pre-push
