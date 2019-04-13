@@ -7,3 +7,6 @@ contracts/test/.bundle/*
 .notes/
 .gitconfig
 node_modules/
+local.tfvars
+*.iml
+.talismanrc
