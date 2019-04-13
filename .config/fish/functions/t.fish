@@ -1,3 +1,3 @@
 function t
-	terraform
+	terraform $argv
 end
