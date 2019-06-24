@@ -10,10 +10,10 @@ alias dm="docker-machine"
 
 ## IDE aliases ##
 alias wp="./node_modules/.bin/webpack -d"
-alias rubymine="open -a /Applications/RubyMine.app"
-alias clion='open -a /Applications/Clion.app'
-alias code='function(){VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*}'
-alias stree="open -a /Applications/Sourcetree.app/"
+# alias rubymine="open -a /Applications/RubyMine.app"
+# alias clion='open -a /Applications/Clion.app'
+# alias code='function(){VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*}'
+# alias stree="open -a /Applications/Sourcetree.app/"
 
 ## git aliases ##
 alias git_revert_file_to_previous_commit='function(){eval "git show HEAD:"${1}" > "${1}"" }'
@@ -34,38 +34,36 @@ alias gr='cd ~/git_repos'
 alias gd="cd ~/git_repos/gobblin-fork/gobblin-dist"
 alias gf="cd ~/git_repos/gobblin-fork"
 alias downloads="cd ~/Downloads"
-alias research_papers="~/Documents/papers/"
-alias cmu="~/git_repos/cmu"
+# alias research_papers="~/Documents/papers/"
+# alias cmu="~/git_repos/cmu"
 alias dotfiles="~/git_repos/dotfiles"
-alias notes_on_distributed_systems="cd ~/GitBook/Library/Import/notes_on_distributed_systems" 
+# alias notes_on_distributed_systems="cd ~/GitBook/Library/Import/notes_on_distributed_systems" 
 
 alias java_repl="java -jar ~/bin/javarepl-dev.jar" 
-alias daisy_diff="java -jar ~/bin/daisydiff.jar"
-alias convert_research_paper="python ~/bin/convert_research_paper"
-alias ner='java -cp ~/bin/stanford-ner.jar'
+# alias daisy_diff="java -jar ~/bin/daisydiff.jar"
+# alias convert_research_paper="python ~/bin/convert_research_paper"
+# alias ner='java -cp ~/bin/stanford-ner.jar'
 alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
-alias mvn_clean_assembly='mvn clean compile assembly:single'
-alias ps_kill_grep='function(){eval "kill $(ps aux | grep '"${1}"' | awk '{print $2}')" }'
+# alias mvn_clean_assembly='mvn clean compile assembly:single'
+# alias ps_kill_grep='function(){eval "kill $(ps aux | grep '"${1}"' | awk '{print $2}')" }'
 alias print_alias='function(){eval "type ${1}"}'
-alias find_all_files_and_copy_to_dir='function(){eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""}'
+# alias find_all_files_and_copy_to_dir='function(){eval "find build -name \\"${1}" | xargs -I FILE cp FILE "${2}""}'
 
-alias avrotojson='function(){eval "java -jar ~/bin/avro-tools-1.7.4.jar tojson ${1}"}'
-alias parquet-tools="java -jar ~/bin/parquet-tools-1.10.0.jar"
+# alias avrotojson='function(){eval "java -jar ~/bin/avro-tools-1.7.4.jar tojson ${1}"}'
+# alias parquet-tools="java -jar ~/bin/parquet-tools-1.10.0.jar"
 # alias spark-shell="docker run -it -p 8088:8088 -p 8042:8042 -h sandbox sequenceiq/spark:1.6.0 bash -c \"spark-shell --master yarn-client --driver-memory 1g --executor-memory 1g --executor-cores 1\""
-alias parquet_as_json="parquet-tools cat --json "
-alias xargs_for_each='function(){eval "xargs -n 1 ${1}"}'
+# alias parquet_as_json="parquet-tools cat --json "
+# alias xargs_for_each='function(){eval "xargs -n 1 ${1}"}'
 alias cat="ccat $*"
-alias scw="~/git_repos/scala_workbook/"
+# alias scw="~/git_repos/scala_workbook/"
 alias addalias='function(){echo "alias $1=\"${@:2}\"" >> ~/.alias && reload }'
-alias jepsen_control="docker_env default && docker exec -it jepsen-control bash"
-alias jepsen_node='function(){docker_env default && docker exec -it jepsen-$1 bash}'
+# alias jepsen_control="docker_env default && docker exec -it jepsen-control bash"
+# alias jepsen_node='function(){docker_env default && docker exec -it jepsen-$1 bash}'
 alias findpidbyport='function(){sudo lsof -i :$1 | grep LISTEN}'
-alias chef_auto_correct="bundle exec rake rubocop:auto_correct"
-alias knife_upload_role="bundle exec knife upload role from roles/z-qa2.json"
-alias hdp="ssh root@sandbox-hdp.hortonworks.com -p 2222"
-alias getprodpdfs="scp root@z-prod10.dnspam:/data/services/supplier-email-order/direct_orders_pdf_archive/archived/* ."
-alias zqaVm1="ssh -t z-qa-vm1.dnspam \"sudo -i\""
-alias chef_client_log="chef-client --log_level=debug"
+# alias chef_auto_correct="bundle exec rake rubocop:auto_correct"
+# alias knife_upload_role="bundle exec knife upload role from roles/z-qa2.json"
+# alias hdp="ssh root@sandbox-hdp.hortonworks.com -p 2222"
+# alias chef_client_log="chef-client --log_level=debug"
 function addaliasfn() {echo "alias $1='function(){${@:2}}'" >> ~/.alias && reload }
 
 # Source files aliases
@@ -74,37 +72,29 @@ alias zshconfig="vi ~/.zshrc && reload"
 alias reload='source ~/.zshrc'
 alias bashrc="vi ~/.bashrc"
 alias aliasfile="vi ~/.alias && reload"
-alias pamaliasfile="vi ~/.pam/.pam_alias && reload"
 function sa(){ found=$({alias & cat ~/.alias ~/.pam/.pam_alias} | sed -e 's/alias //g' -e 's/function //g' -e 's/=.*//g' -e 's/()//g' -e 's/{.*//g' | sort -r -u | fzf) && eval ${found} }
 
-alias msqllocal="cd /Users/tilak/git_repos/mopar/pricing-tool-api && build_scripts/sqlcli.sh"
-alias pmock="cd /Users/tilak/git_repos/mopar/pricing-ui/pricing-mock"
-alias msqlstart="docker start pricing_db"
-alias mockauth="cd /Users/tilak/git_repos/mopar/pricing-tool-api && sh build_scripts/mockauth.sh start"
-alias msqlseedlocal="bash build_scripts/seed_data.sh -l"
-alias ptardb="pta && sh build_scripts/resetDb.sh"
-alias ptalb="pta && sh build_scripts/local_build.sh"
-alias ptastart="pta && ./gradlew clean bootRun"
-alias msqldev="msqllocal -d"
-alias msqlqa="msqllocal -q"
-alias lb="replace \"spring.data.elasticsearch.cluster-name=elasticsearch\" \"#spring.data.elasticsearch.cluster-name=elasticsearch\" -- src/main/resources/application.properties ; replace \"spring.data.elasticsearch.cluster-nodes=localhost:9300\" \"#spring.data.elasticsearch.cluster-nodes=localhost:9300\" -- src/main/resources/application.properties ; ./build_scripts/local_build.sh"
 alias gupp="gup && gp"
-alias cleanBuild="./gradlew clean build"
-alias jepsen-compose="docker_env default && cd $JEPSEN_ROOT/docker && ./up.sh --dev $*"
+# alias jepsen-compose="docker_env default && cd $JEPSEN_ROOT/docker && ./up.sh --dev $*"
 alias grh="git reset --hard"
 alias seed_data="build_scripts/seed_data.sh"
 alias git_rm_untracked_show="git clean -n"
 alias git_rm_untracked_delete="git clean -f"
-alias reset_db_dev="chmod +x build_scripts/resetDb.sh && rm -rf out/ && rm -rf build/ && ./gradlew clean build -x checkstyleMain -x findbugsMain -x test -x pmdMain && build_scripts/resetDb.sh dev && gco build_scripts/resetDb.sh"
-alias reset_db_test="chmod +x build_scripts/resetDb.sh && rm -rf out/ && rm -rf build/ && ./gradlew clean build -x checkstyleMain -x findbugsMain -x test -x pmdMain && build_scripts/resetDb.sh test && gco build_scripts/resetDb.sh"
-alias simd="sysctl -a | grep machdep.cpu.features"
-alias server="python -m SimpleHTTPServer 8000"
-function orc-total-rows(){orc-metadata $@ | jq -s -c 'map(.rows) | add'}
-function orc-schema(){orc-metadata $@ | jq -s 'map(.type)'}
-alias dataikuhome="/Applications/DataScienceStudio.app/Contents/Resources/kit"
-alias spark_history_server_stop="/usr/local/Cellar/apache-spark/2.2.0/libexec/sbin/stop-history-server.sh"
-alias spark_history_server_start="/usr/local/Cellar/apache-spark/2.2.0/libexec/sbin/start-history-server.sh"
-alias paj="parquet_as_json"
+# alias simd="sysctl -a | grep machdep.cpu.features"
+# alias server="python -m SimpleHTTPServer 8000"
+# function orc-total-rows(){orc-metadata $@ | jq -s -c 'map(.rows) | add'}
+# function orc-schema(){orc-metadata $@ | jq -s 'map(.type)'}
+# alias spark_history_server_stop="/usr/local/Cellar/apache-spark/2.2.0/libexec/sbin/stop-history-server.sh"
+# alias spark_history_server_start="/usr/local/Cellar/apache-spark/2.2.0/libexec/sbin/start-history-server.sh"
+# alias paj="parquet_as_json"
 alias git_first_commit="glo | head -n 1 | cut -d \" \" -f1"
 alias ds="docker ps"
 alias ec="ebook-convert"
+alias setProx="export https_proxy="http://10.158.100.1:8080" export http_proxy="http://10.158.100.1:8080""
+alias terraform_graph="terraform graph -verbose | dot -Tpng > graph.png && imgcat graph.png"
+#alias tfvars="env | grep \"TF_VAR\""
+alias t="terraform"
+alias devmac="ssh centos@10.129.84.174"
+alias localopenstack="ssh -tp 3222 tilak@127.0.0.1 \"sudo su stack\""alias tws="terraform workspace select"
+alias twsl="terraform workspace select local && source ~/.openstack.local"
+alias twsn="terraform workspace select nokia && source .env && setProx"

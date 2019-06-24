@@ -83,21 +83,24 @@ export LANG=en_US.UTF-8
 #
 # Example aliases
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export ENVFILE=""
+# Source .env files automatically
+ls -a | grep -w -q ".env" && source .env && export ENVFILE="(env)"
+# ls -a | grep -w -q ".env_ex_" && source .env_ex_
 export PROMPT='%{%f%k%b%}
-%{%K{${bkg}}%B%F{green}%}%n%{%B%F{blue}%}@%{%B%F{cyan}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_super_status) 
+%{%K{${bkg}}%B%F{green}%}%n%{%B%F{blue}%}@%{%B%F{cyan}%}%m%{%B%F{green}%} %{%b%F{yellow}%K{${bkg}}%}%~%{%B%F{green}%}$(git_super_status)$ENVFILE 
 %{%K{${bkg}}%}$(_prompt_char)%{%K{${bkg}}%} %#%{%f%k%b%} '
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+source ~/.iterm2_shell_integration.zsh
 export PYTHON_PATH=$PYTHON_PATH:/Library/Python/2.7/site-packages
+
 
 # Use Ctrl-n for zsh-autosuggest
 bindkey '^n' autosuggest-accept
 
 # Unset useless RPROMPT
 unset RPROMPT
-# .rvm/bin should always be the last PATH element
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="$PATH:$DATAIKU_HOME/bin:$DATAIKU_HOME/scripts/linked"
+
 
 # import fzf file search on Ctrl-T
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -105,13 +108,9 @@ export PATH="$PATH:$DATAIKU_HOME/bin:$DATAIKU_HOME/scripts/linked"
 # Enable autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-
 source ~/.bashrc
 source ~/.alias
-source ~/aliases/.*
 
-# Source RVM env
-[[ -s "$HOME/.rvm/scripts/rvm"  ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Change Globalias defaults ctrl-space expands aliases now
 # control-space expands all aliases, including global
@@ -130,5 +129,11 @@ bindkey -M isearch " " magic-space
 
 source ~/.zsh-git-prompt/zshrc.sh
 source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
-# To trigger loading of .env file
 cd .
+
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/tilak/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;source /usr/local/bin/activate.sh
+source /usr/local/bin/activate.sh
+source /usr/local/bin/activate.sh
+source /usr/local/bin/activate.sh

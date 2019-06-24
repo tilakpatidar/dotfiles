@@ -10,13 +10,12 @@ export GPG_TTY=$(tty)
 source ~/.ssh-find-agent/ssh-find-agent.sh
 set_ssh_agent_socket
 
-export PATH=/usr/local/mysql/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-export PATH=/usr/local/Cellar/httrack/3.49.2/bin/:/Applications/calibre.app/Contents/MacOS/:$PATH
+# Postgres and Mysql Paths
+# export PATH=/usr/local/mysql/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+export PATH=/Applications/calibre.app/Contents/MacOS:~/bin:$PATH
 export PATH=~/bin:/usr/local/bin:/usr/local/sbin:$PATH
-export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
-export SCALA_HOME=~/bin/scala
-export PATH=$SCALA_HOME/bin:$PATH
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export GRADLE_HOME=/usr/local/Cellar/gradle/4.0.1/libexec/
 export PYTHON_PATH="${PYTHON_PATH}:/Library/Python/2.7/site-packages"
 export PYTHONSTARTUP=$HOME/.pythonstartup
@@ -26,33 +25,20 @@ export LANG=en_US.UTF-8
 # Add macvim binaries to PATH
 export PATH=$PATH:/Applications/MacVim.app/Contents/bin
 
-# HADOOP
-export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.0/libexec
-export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-#export HIVE_HOME=/usr/local/Cellar/hive/2.3.1/libexec
-#export HCAT_HOME=/usr/local/opt/hive/libexec/hcatalog
-export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
-export SPARK_HOME=/usr/local/Cellar/apache-spark/2.2.0/libexec
-#export LIVY_HOME=/Users/tilak/bin/livy
 # Replace vi with vim8
 alias vi="nvim"
 
 # Set default editor
 export EDITOR="/usr/local/bin/nvim"
 
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:/usr/local/opt/icu4c/bin:/usr/local/opt/icu4c/sbin:$HOME/.cargo/bin:$PATH"
 export PATH="~/git_repos/gobblin-fork/gobblin-dist/bin:$PATH"
-export DATAIKU_RESOURCES="/Applications/DataScienceStudio.app/Contents/Resources/kit"
-export DATAIKU_HOME="$HOME/Library/DataScienceStudio/dss_home/"
 export PATH="$PATH:/Users/tilak/Library/Python/2.7/bin"
-export KAFKA_HOME="$HOME/bin/kafka"
-export MANAGE_LOCAL_HBASE=true
-export MANAGE_LOCAL_SOLR=true
-ls -a | grep -w -q ".env" && source .env
-ls -a | grep -w -q ".env_ex_" && source .env_ex_
+
+# Set nokia proxy when using nokia network
+unset http_proxy
+unset https_proxy
+ifconfig | grep -o en4\.\* | head -n 1 | grep -q -o RUNNING && export https_proxy=http://10.158.100.1:8080 && export http_proxy=http://10.158.100.1:8080
 
 # Redeclare autojump for post autojump hooks
 
@@ -79,5 +65,38 @@ j () {
 		echo "Try \`autojump --help\` for more information."
 		false
 	fi
-  source ~/.post_autojump
+  source ~/.zshrc	
 }
+
+function fp() {
+	if (pgrep osascript /Users/tilak/bin/AutoLaunch.scpt) then
+	  echo "Floating prompt is running. Switching it off."
+	  kill -9 $FLOATING_PROMPT_PID
+	else
+	  echo "Floating prompt is not running. Switching it on."
+      (osascript ~/bin/AutoLaunch.scpt) &
+      sleep 2
+      export FLOATING_PROMPT_PID=$(pgrep osascript /Users/tilak/bin/AutoLaunch.scpt)
+	fi
+}
+
+function fps() {
+	if (pgrep osascript /Users/tilak/bin/AutoLaunch.scpt) then
+	  echo "Floating prompt is running."
+	else
+	  echo "Floating prompt is not running"
+	fi
+}
+
+source /usr/local/bin/activate.sh
+source /usr/local/bin/activate.sh
+source /Users/tilak/git_repos/mopar/data-management/env/bin/activate.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# >>> talisman >>>
+# Below environment variables should not be modified unless you know what you are doing
+export TALISMAN_HOME=/Users/tilak/.talisman/bin
+alias talisman=$TALISMAN_HOME/talisman_darwin_amd64
+# <<< talisman <<<
